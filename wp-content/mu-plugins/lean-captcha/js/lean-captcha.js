@@ -47,6 +47,19 @@ function lean_captcha_load_img() {
     );
 }
 
+function lean_captcha_audio_focus() {
+	jQuery('#securitycode').focus();
+	return false;
+}
+
+function lean_captcha_refresh_alert() {
+	jQuery('.lean-captcha-refresh-notification').attr({'aria-hidden': false, 'role': 'alert'});
+	setTimeout(function() {
+		jQuery('#securitycode').focus();
+	},1000);
+	return false;
+}
+
 function lean_captcha_load_audio(anchor) {
     if (lc_sound_started) {
         return;
